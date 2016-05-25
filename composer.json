@@ -1,0 +1,19 @@
+{
+    "name": "root/www",
+    "authors": [
+        {
+            "name": "Willian da Rosa",
+            "email": "will@will.net.br"
+        }
+    ],
+    
+    "require": {
+        "raveren/kint": "^1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "RedeNeural":        "lib/"
+        }
+    }
+    
+}
