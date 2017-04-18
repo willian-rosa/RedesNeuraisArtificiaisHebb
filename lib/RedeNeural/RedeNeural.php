@@ -58,9 +58,9 @@ class RedeNeural{
             
             //Para cada vetor de treinamento faça
             foreach($neuronio->getDadosEntrada() as $indice => $entrada){
-                //Ajustar pesos
                 
-                $pesosAntigo = $this->pesos[$indice]; 
+                //Ajustar pesos
+                $pesosAntigo = isset($this->pesos[$indice])?$this->pesos[$indice]:0; 
                 
                 $this->pesos[$indice] = $pesosAntigo + ($entrada * $neuronio->getDadoSaida());
                                 
