@@ -3,7 +3,7 @@ namespace RedeNeural;
 
 class RedeNeural{
     
-    private $pesos = array();
+    public $pesos = array();
     
     private function converteCaracterEmValor($caracter){
         if($caracter == '#'){

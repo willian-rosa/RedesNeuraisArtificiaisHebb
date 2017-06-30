@@ -1,3 +1,3 @@
 require("lua/init");
 
-print("teste2") 
+RedeNeural.Hebb:treinar()

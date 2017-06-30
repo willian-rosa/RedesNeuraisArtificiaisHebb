@@ -7,6 +7,7 @@ $lineBreak	= ($isCli)?PHP_EOL:'<br>';
 $redeNeural = new RedeNeural\RedeNeural();
 $redeNeural->treinar();
 
+
 $resultados = $redeNeural->classificar();
 
 

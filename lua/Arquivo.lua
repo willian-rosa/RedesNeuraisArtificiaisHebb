@@ -11,11 +11,7 @@ function RedeNeural.Arquivo:_buscarConteudoArquivo(nomeArquivo)
 	local file = io.open(nomeArquivo)
 	
 	if file then
-		line = ''
-		repeat 
-			conteudo = conteudo..line
-			line = file:read()
-		until line == nil
+		conteudo = file:read('*a')
 	end
 
 	return conteudo
@@ -36,12 +32,19 @@ function RedeNeural.Arquivo:_scanear(pastaSeleciona)
 
 end
 
+function RedeNeural.Arquivo:_buscarArquivos(nomePasta)
+	local entradas = {}
+	local arquivos = self:_scanear(nomePasta)
+	for pos, val in pairs(arquivos) do
+		entradas[pos] = self:_buscarConteudoArquivo(val)
+	end
+	return entradas
+end
 
---[[
-buscarConteudoArquivo
-scanear
-buscarArquivosClassificacao
-]]
+function RedeNeural.Arquivo:buscarArquivosTreinamento()
+	return self:_buscarArquivos('treino')
+end
 
-local re = RedeNeural.Arquivo:_scanear('treino')
-print(re)
+function RedeNeural.Arquivo:buscarArquivosClassificacao()
+	return self:_buscarArquivos('classificacao')
+end
